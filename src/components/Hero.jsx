@@ -7,7 +7,7 @@ function Hero() {
       <img
         src={heroImg}
         alt="Kamera Hero-kuva"
-        className="object-cover w-full h-[75vh]"
+        className="object-cover w-full h-screen"
       />
 
       {/* Gradientti kontrastia varten */}
