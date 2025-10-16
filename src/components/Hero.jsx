@@ -1,4 +1,5 @@
 import heroImg from "../assets/cameraHERO.jpg";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -25,12 +26,12 @@ function Hero() {
           <p className="text-1g sm:text-x1 mb-6 opacity-90">
             Muotokuvia ja maisemakuvia
           </p>
-          <a
-            href="#gallery"
-            className="inline-block bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-x1 backdrop-blur-sm border border-white/20 transition"
+          <Link
+            to="/gallery"
+            className="inline-block bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl backdrop-blur-sm border border-white/20 transition"
           >
             Katso Galleria →
-          </a>
+          </Link>
         </div>
       </div>
     </header>

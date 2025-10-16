@@ -6,30 +6,26 @@ import port4 from "../assets/port4.jpeg";
 
 function Gallery() {
   return (
-    <section id="gallery" className="bg-gray-900 text-white py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">Galleria</h2>
+    <section
+      id="gallery"
+      className="min-h-screen  text-white py-16 pb-8 px-6 flex flex-col"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://www.transparenttextures.com/patterns/black-paper.png')",
+        backgroundColor: "#000",
+      }}
+    >
+      <div className="max-w-6xl mx-auto w-full">
+        <h2 className="text-4xl font-bold text-center mb-10">Galleria</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <img
-            src={port1}
-            alt="Kuva 1"
-            className="rounded-1g object-cover w-full h-64"
-          />
-          <img
-            src={port2}
-            alt="Kuva 2"
-            className="rounded-1g object-cover w-full h-64"
-          />
-          <img
-            src={port3}
-            alt="Kuva 3"
-            className="rounded-1g object-cover w-full h-64"
-          />
-          <img
-            src={port4}
-            alt="Kuva 4"
-            className="rounded-1g object-cover w-full h-64"
-          />
+          {[port1, port2, port3, port4].map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              alt={`Kuva ${i + 1}`}
+              className="rounded-lg object-cover w-full h-64"
+            />
+          ))}
         </div>
       </div>
     </section>
