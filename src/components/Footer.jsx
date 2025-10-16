@@ -1,4 +1,4 @@
-import { Instagram, Mail } from "lucide-react";
+import { InstagramIcon, Mail } from "lucide-react";
 
 function Footer() {
   return (
@@ -11,13 +11,13 @@ function Footer() {
         <div className="flex justify-center items-center space-x-6">
           {/* Instagram */}
           <a
-            href="https://www.instagram.com/kayttajatunnus" // <-- vaihda oikea IG-linkki
+            href="https://www.instagram.com/beurala"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-400 transition"
             aria-label="Instagram"
           >
-            <Instagram size={28} />
+            <InstagramIcon size={28} />
           </a>
 
           {/* Sähköposti */}
