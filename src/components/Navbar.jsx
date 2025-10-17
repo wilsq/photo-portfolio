@@ -8,7 +8,9 @@ function Navbar() {
           Jani Peurala Photography
         </h1>
         <ul className="flex gap-4">
-          <li className="hover:text-gray-500 cursor-pointer">Home</li>
+          <Link to="/" className="hover:text-gray-500 cursor-pointer">
+            Home
+          </Link>
           <Link to="/gallery" className="hover:text-gray-500 cursor-pointer">
             Gallery
           </Link>

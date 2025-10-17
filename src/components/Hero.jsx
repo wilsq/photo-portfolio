@@ -18,13 +18,13 @@ function Hero() {
       />
 
       {/* Tekstiboksi */}
-      <div className="absolute inset-0 flex items-center">
-        <div className="text-white max-w-1g px-8 sm:px-16">
+      <div className="absolute inset-0 flex items-center justify-start px-8 sm:px-16">
+        <div className="bg-black/50 backdrop-blur-md p-8 rounded-2xl shadow-lg max-w-lg text-white border border-white/30">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 drop-shadow-1g">
-            Janin Kuvaportfolio
+            Jani Peurala Kuvaportfolio
           </h1>
           <p className="text-1g sm:text-x1 mb-6 opacity-90">
-            Muotokuvia ja maisemakuvia
+            Tervetuloa Kuvaportfoliooni. Tutustu kuvagalleriaan
           </p>
           <Link
             to="/gallery"

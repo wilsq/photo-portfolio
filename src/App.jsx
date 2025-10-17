@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
+import About from "./components/About";
+import FeaturedWorks from "./components/Featuredworks";
 
 function App() {
   return (
@@ -11,8 +13,18 @@ function App() {
       <Navbar />
       <main className="flex-grow">
         <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="gallery" element={<Gallery />} />
+          <Route
+            path="/"
+            element={
+              <>
+                {" "}
+                <Hero />
+                <FeaturedWorks />{" "}
+              </>
+            }
+          />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
       <Footer />
