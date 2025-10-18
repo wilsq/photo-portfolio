@@ -19,18 +19,18 @@ function Hero() {
 
       {/* Tekstiboksi */}
       <div className="absolute inset-0 flex items-center justify-start px-8 sm:px-16">
-        <div className="bg-black/50 backdrop-blur-md p-8 rounded-2xl shadow-lg max-w-lg text-white border border-white/30">
+        <div className=" p-8 rounded-2xl shadow-lg max-w-lg text-white sm:ml-20">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 drop-shadow-1g">
-            Jani Peurala Kuvaportfolio
+            Jani Peurala Photography
           </h1>
           <p className="text-1g sm:text-x1 mb-6 opacity-90">
-            Tervetuloa Kuvaportfoliooni. Tutustu kuvagalleriaan
+            Welcome to my photoportfolio
           </p>
           <Link
             to="/gallery"
             className="inline-block bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl backdrop-blur-sm border border-white/20 transition"
           >
-            Katso Galleria →
+            View Portfolio →
           </Link>
         </div>
       </div>

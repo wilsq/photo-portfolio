@@ -5,8 +5,8 @@ function Footer() {
     <footer className="bg-black text-gray-300 py-8">
       <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Janin Kuvaportfolio. Kaikki oikeudet
-          pidätetään
+          &copy; {new Date().getFullYear()} Jani Peurala Photography. All rights
+          reserved
         </p>
         <div className="flex justify-center items-center space-x-6">
           {/* Instagram */}

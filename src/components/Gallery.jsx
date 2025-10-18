@@ -34,7 +34,7 @@ function Gallery() {
     >
       {/* Kuvagrid */}
       <div className="max-w-6xl mx-auto w-full">
-        <h2 className="text-4xl font-bold text-center mb-10">Galleria</h2>
+        <h2 className="text-4xl font-bold text-center mb-10">Gallery</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {images.map((img, index) => (
             <img

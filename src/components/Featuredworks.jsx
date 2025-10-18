@@ -14,7 +14,7 @@ function FeaturedWorks() {
   return (
     <section className="bg-black text-white py-16 px-6">
       <div className="max-w-6x1 mx-auto text-center">
-        <h2 className="text-3x1 font-bold mb-8">Viimeisimmät otokset</h2>
+        <h2 className="text-3x1 font-bold mb-8">My work</h2>
 
         {/* Kuvagrid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
