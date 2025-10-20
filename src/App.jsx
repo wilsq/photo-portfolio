@@ -5,11 +5,11 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import About from "./components/About";
-import FeaturedWorks from "./components/Featuredworks";
+import Services from "./components/Services";
 
 function App() {
   return (
-    <div className="min-h-screen w-full flex flex-col bg-gray-100">
+    <div className="min-h-screen w-full bg-black flex flex-col">
       <Navbar />
 
       <main className="flex-grow">
@@ -20,7 +20,7 @@ function App() {
               <>
                 {" "}
                 <Hero />
-                <FeaturedWorks />{" "}
+                <Services />{" "}
               </>
             }
           />

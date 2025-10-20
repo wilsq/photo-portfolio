@@ -8,7 +8,7 @@ function Navbar() {
         <h1 className="text-2x1 flex gap-2 font-bold text-white-600">
           <Camera /> Jani Peurala Photography
         </h1>
-        <ul className="flex gap-10">
+        <ul className="flex gap-10 font-mono">
           <Link to="/" className="hover:text-gray-500 cursor-pointer">
             Home
           </Link>

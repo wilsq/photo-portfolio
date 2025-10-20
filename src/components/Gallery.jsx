@@ -1,5 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 // Kategoria config
 const CATEGORIES = {
@@ -30,13 +31,33 @@ const buildImageList = ({ prefix, count, ext }) =>
   Array.from({ length: count }, (_, i) => `${prefix}${i + 1}.${ext}`);
 
 function Gallery() {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const tabFromUrl = params.get("tab");
+
+  useEffect(() => {
+    // Scrollaa aina gallerian alkuun kun tullaan sivulle
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location]);
+
+  useEffect(() => {
+    if (tabFromUrl && tabs.some((t) => t.key === tabFromUrl)) {
+      setActiveTab(tabFromUrl);
+    }
+  }, [tabFromUrl]);
+
+  // Välilehtien luonti
   const tabs = [
     { key: "henkilokuvaus", label: "Henkilökuvaus" },
     { key: "tuotekuvaus", label: "Tuotekuvaus" },
     { key: "tapahtumakuvaus", label: "Tapahtumakuvaus" },
     { key: "katukuvaus", label: "Katu- ja maisemakuvaus" },
   ];
+
+  // Aktiivinen kategoria
   const [activeTab, setActiveTab] = useState(tabs[0].key);
+
+  //
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const images = useMemo(
@@ -72,7 +93,7 @@ function Gallery() {
                   setSelectedIndex(null);
                 }}
                 className={[
-                  "px-4 py-2 rounded-xl border transition",
+                  "px-4 py-2 rounded-xl border transition font-mono",
                   isActive
                     ? "bg-white/15 border-white/30"
                     : "bg-white/5 border-white/10 hover:bg-white/10",
