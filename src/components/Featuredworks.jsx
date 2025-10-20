@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-import port1 from "../assets/port1.jpg";
-import port2 from "../assets/port2.jpg";
-import port3 from "../assets/port3.jpg";
 import { useState } from "react";
 import { X } from "lucide-react";
 
 function FeaturedWorks() {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const images = [port1, port2, port3];
+  const images = [
+    "/gallery/port1.jpg",
+    "/gallery/port2.jpg",
+    "/gallery/port3.jpg",
+  ];
 
   const handleClose = () => setSelectedImage(null);
   return (
