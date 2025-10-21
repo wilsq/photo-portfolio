@@ -11,8 +11,30 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+footer {
   @apply font-mono;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Zoomi */
+@keyframes heroZoom {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @tailwind base;

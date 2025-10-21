@@ -77,7 +77,7 @@ function Gallery() {
 
   const handleClose = () => setSelectedIndex(null);
   return (
-    <section className="min-h-screen bg-black text-white py-16 px-6">
+    <section className="min-h-screen text-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-8">Galleria</h2>
 
@@ -96,7 +96,7 @@ function Gallery() {
                   "px-4 py-2 rounded-xl border transition font-mono",
                   isActive
                     ? "bg-white/15 border-white/30"
-                    : "bg-white/5 border-white/10 hover:bg-white/10",
+                    : "bg-white/5 border-white/10 hover:bg-white/20",
                 ].join(" ")}
               >
                 {t.label}
@@ -114,7 +114,7 @@ function Gallery() {
               alt={`${activeTab} ${i + 1}`}
               loading="lazy"
               onClick={() => setSelectedIndex(i)}
-              className="cursor-pointer rounded-lg object-cover w-full h-64 hover:opacity-80 transition"
+              className="cursor-pointer rounded-lg object-cover w-full h-64 hover:scale-105 hover:opacity-80 transition"
             />
           ))}
         </div>
