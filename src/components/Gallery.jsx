@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
 // Kategoria config
@@ -57,6 +57,8 @@ function Gallery() {
   // Aktiivinen kategoria
   const [activeTab, setActiveTab] = useState(tabs[0].key);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
   //
   const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -81,8 +83,8 @@ function Gallery() {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-8">Galleria</h2>
 
-        {/* Välilehdet */}
-        <div className="flex justify-center gap-2 sm:gap-4 mb-10">
+        {/* Desktop Välilehdet */}
+        <div className="hidden md:flex justify-center gap-2 sm:gap-4 mb-10">
           {tabs.map((t) => {
             const isActive = t.key === activeTab;
             return (
@@ -103,6 +105,44 @@ function Gallery() {
               </button>
             );
           })}
+        </div>
+
+        {/* Mobiili välilehdet */}
+        <div className="relative md:hidden max-w-xs mx-auto mb-10">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="w-full flex justify-between items-center px-4 py-2 bg-white/10 border border-white/20 rounded-1g shadow-1g z-20 animate-slideDown origin-top"
+          >
+            <span>
+              {tabs.find((t) => t.key === activeTab)?.label ||
+                "Valitse kategoria"}
+            </span>
+            <ChevronDown
+              className={`transform transition ${
+                menuOpen ? "rotate-180" : "rotate-0"
+              }`}
+              size={20}
+            />
+          </button>
+
+          {menuOpen && (
+            <div className="absolute mt-2 w-full bg-black border border-white/20 rounded-lg shadow-lg z-20 animate-slideDown origin-top">
+              {tabs.map((t) => (
+                <button
+                  key={t.key}
+                  onClick={() => {
+                    setActiveTab(t.key);
+                    setMenuOpen(false);
+                  }}
+                  className={`block w-full text-left px-4 py-2 text-white hover:bg-white/10 transition ${
+                    t.key === activeTab ? "bg-white/10" : ""
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Kuvagrid */}
