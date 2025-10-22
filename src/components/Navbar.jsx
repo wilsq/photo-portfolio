@@ -20,7 +20,9 @@ function Navbar() {
           <Link to="/gallery" className="hover:text-gray-500 cursor-pointer">
             Gallery
           </Link>
-          <li className="hover:text-gray-500 cursor-pointer">About Me</li>
+          <Link to="/about" className="hover:text-gray-500 cursor-pointer">
+            About
+          </Link>
         </ul>
 
         {/* Mobiili Menu */}
