@@ -80,7 +80,7 @@ function Gallery() {
   const handleClose = () => setSelectedIndex(null);
   return (
     <section className="min-h-screen text-white py-16 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto animate-[fadeSlideUp_0.8s_ease-out]">
         <h2 className="text-4xl font-bold text-center mb-8">Galleria</h2>
 
         {/* Desktop Välilehdet */}

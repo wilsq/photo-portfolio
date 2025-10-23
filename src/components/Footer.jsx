@@ -2,11 +2,11 @@ import { InstagramIcon, Mail } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="bg-black text-gray-300 py-8">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <footer className="bg-black text-gray-300 py-5">
+      <div className="max-w-[1800px] mx-auto px-2 flex justify-between items-center py-4">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Jani Peurala Photography. All rights
-          reserved
+          &copy; {new Date().getFullYear()} Jani Peurala Photography. Kaikki
+          oikeudet pidätetään.
         </p>
         <div className="flex justify-center items-center space-x-6">
           {/* Instagram */}

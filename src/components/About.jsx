@@ -1,18 +1,20 @@
 import React from "react";
+import aboutImg from "../assets/aboutkuva2.jpg";
 
 function About() {
   return (
-    <section className="min-h-screen flex flex-col md:flex-row">
-      <div
-        className="md:w-1/2 h-64 md:h-auto bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/gallery/katukuvaus/katu6.jpg')", // tämä kuva public-kansioon
-        }}
-      ></div>
+    <section className="flex flex-col md:flex-row min-h-screen max-h-[90vh]">
+      <div className="md:w-1/2 h-[40vh] md:h-auto overflow-hidden ">
+        <img
+          src={aboutImg}
+          alt="Jani kuva"
+          className="w-full h-full object-cover scale-105 opacity-0 animate-[fadeSlideLeft_1s_ease-out_forwards]"
+        />
+      </div>
 
       {/* teksti */}
-      <div className="md:w-1/2 bg-black text-white flex items-center">
-        <div className="max-w-lg mx-auto px-6 py-16">
+      <div className="md:w-1/2 bg-black text-white flex items-center animate-[fadeSlideUp_0.8s_ease-out]">
+        <div className="max-w-lg mx-auto px-6 py-10 md:py-16">
           <h2 className="text-4xl font-bold mb-4">Moi, olen Jani</h2>
           <p className="text-lg text-gray-300 mb-4 leading-relaxed">
             Olen intohimoinen valokuvaaja, joka rakastaa tallentaa aitoja hetkiä

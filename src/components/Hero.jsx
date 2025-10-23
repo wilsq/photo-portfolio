@@ -14,14 +14,13 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
       {/* Sisältö */}
-      <div className="relative z-10 h-full flex items-center justify-start pl-[15%] pr-6 animate-[fadeSlideUp_0.8s_ease-out]">
+      <div className="max-w-[1800px] min-h-screen mx-auto px-2 flex justify-between items-center py-4 animate-[fadeSlideUp_0.8s_ease-out]">
         <div className="max-w-md text-white">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 drop-shadow-lg ">
-            Jani Peurala Kuvaportfolio
+            JANI PEURALA Kuvaportfolio
           </h1>
           <p className="text-lg sm:text-xl mb-6 opacity-90 leading-relaxed">
-            Tervetuloa kuvaportfoliooni. Tutustu upeisiin muotokuviin ja
-            maisemakuviin.
+            Tapahtumakuvaus | Maisema- & katukuvaus | Tuotekuvaus
           </p>
           <Link
             to="/gallery"
