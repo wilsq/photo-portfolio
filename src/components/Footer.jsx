@@ -22,7 +22,7 @@ function Footer() {
 
           {/* Sähköposti */}
           <a
-            href="mailto:jani@example.com"
+            href="mailto:jani.peurala@outlook.com"
             className="hover:text-gray-400 transition"
             aria-label="Sähköposti"
           >

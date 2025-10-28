@@ -1,6 +1,8 @@
 # 🖼️ Photo Portfolio - KESKEN
 
-Moderni valokuva-/projektigalleria, rakennettu **Reactilla** ja **Tailwind CSS:llä**.  
+Moderni valokuva-/projektigalleria, rakennettu **Reactilla** ja **Tailwind CSS:llä**.
+
+Linkki sivulle: https://photo-portfolio-jani.vercel.app/
 
 ---
 
@@ -8,7 +10,7 @@ Moderni valokuva-/projektigalleria, rakennettu **Reactilla** ja **Tailwind CSS:l
 
 - 🔹 Responsiivinen rakenne (toimii hyvin eri kokoisilla näytöillä)
 - 🔹 Lightbox-ominaisuus kuvien suurentamiseen
-- 🔹 Tumma, tyylikäs graniittitausta galleriassa
+- 🔹 Tumma ja tyylikäs ulkoasu
 - 🔹 Selkeä rakenne: `Navbar`, `Hero`, `Gallery`, `Footer`
 - 🔹 Rakennettu Vite + React + Tailwind CSS -ympäristössä
 
@@ -16,9 +18,18 @@ Moderni valokuva-/projektigalleria, rakennettu **Reactilla** ja **Tailwind CSS:l
 
 ## 🛠️ Teknologiat
 
-| Teknologia | Käyttötarkoitus |
-|-------------|----------------|
-| **React** | Sovelluksen rakenne ja komponentit |
-| **Vite** | Nopea kehitysympäristö |
-| **Tailwind CSS** | Tyylit ja responsiivisuus |
-| **Lucide-react** | Kuvakkeet (nuolet, sulkuikoni) |
+| Teknologia       | Käyttötarkoitus                    |
+| ---------------- | ---------------------------------- |
+| **React**        | Sovelluksen rakenne ja komponentit |
+| **Vite**         | Nopea kehitysympäristö             |
+| **Tailwind CSS** | Tyylit ja responsiivisuus          |
+| **Lucide-react** | Kuvakkeet (nuolet, sulkuikoni)     |
+
+---
+
+## Mahdollisia laajennuksia
+
+- Yhteydenottolomake
+- Ajanvarausjärjestelmä
+
+---
