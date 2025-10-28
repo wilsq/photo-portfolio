@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <nav className="w-full bg-black text-white relative">
-      <div className="max-w-[1800px] mx-auto px-2 flex justify-between items-center py-5">
+      <div className="max-w-[1800px] mx-auto px-2 flex justify-between items-center py-6">
         <h1 className="text-2x1 flex gap-2 font-bold text-white-600">
           <Camera /> Jani Peurala Photography
         </h1>

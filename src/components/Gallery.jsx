@@ -4,14 +4,9 @@ import { useLocation } from "react-router-dom";
 
 // Kategoria config
 const CATEGORIES = {
-  henkilokuvaus: {
-    prefix: "/gallery/henkilokuvaus/henk",
-    count: 4,
-    ext: "jpg",
-  },
   tuotekuvaus: {
     prefix: "/gallery/tuotekuvaus/tuote",
-    count: 13,
+    count: 14,
     ext: "jpg",
   },
   tapahtumakuvaus: {
@@ -21,7 +16,7 @@ const CATEGORIES = {
   },
   katukuvaus: {
     prefix: "/gallery/katukuvaus/katu",
-    count: 11,
+    count: 13,
     ext: "jpg",
   },
 };
@@ -48,7 +43,6 @@ function Gallery() {
 
   // Välilehtien luonti
   const tabs = [
-    { key: "henkilokuvaus", label: "Henkilökuvaus" },
     { key: "tuotekuvaus", label: "Tuotekuvaus" },
     { key: "tapahtumakuvaus", label: "Tapahtumakuvaus" },
     { key: "katukuvaus", label: "Katu- ja maisemakuvaus" },

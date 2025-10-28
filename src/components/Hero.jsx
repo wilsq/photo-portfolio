@@ -20,7 +20,8 @@ function Hero() {
             JANI PEURALA Kuvaportfolio
           </h1>
           <p className="text-lg sm:text-xl mb-6 opacity-90 leading-relaxed">
-            Tapahtumakuvaus | Maisema- & katukuvaus | Tuotekuvaus
+            Henkilökuvaus | Tuotekuvaus | Tapahtumakuvaus | Maisema- &
+            katukuvaus
           </p>
           <Link
             to="/gallery"
