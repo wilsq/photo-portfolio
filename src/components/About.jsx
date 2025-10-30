@@ -15,7 +15,7 @@ function About() {
       {/* teksti */}
       <div className="md:w-1/2 w-full bg-black text-white flex items-center animate-[fadeSlideUp_0.8s_ease-out]">
         <div className="max-w-lg mx-auto px-6 py-10 md:py-16">
-          <h2 className="text-4xl font-bold mb-4">Moi, olen Jani</h2>
+          <h2 className="text-4xl font-bold mb-4">Tietoa Minusta</h2>
           <p className="text-lg text-gray-300 mb-4 leading-relaxed">
             Olen valokuvaaja, joka viihtyy niin luonnossa, toimitiloissa kuin
             kadulla tilanteissa, joissa sattuu ja tapahtuu. Etsin kuvissani

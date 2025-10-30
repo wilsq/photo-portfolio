@@ -1,4 +1,4 @@
-# 🖼️ Photo Portfolio - KESKEN
+# 🖼️ Photo Portfolio
 
 Moderni valokuva-/projektigalleria, rakennettu **Reactilla** ja **Tailwind CSS:llä**.
 
