@@ -33,7 +33,7 @@ function Services() {
           <img src={s.img} alt={s.title} className="w-full h-72 object-cover" />
           <div className="p-5 text-center">
             <h3 className="text-xl font-mono mb-3">{s.title}</h3>
-            <p className="text-gray-400 text-sm">{s.text}</p>
+            {/* <p className="text-gray-400 text-sm">{s.text}</p> */}
           </div>
         </Link>
       ))}

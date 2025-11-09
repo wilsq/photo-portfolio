@@ -11,7 +11,7 @@ const CATEGORIES = {
   },
   tapahtumakuvaus: {
     prefix: "/gallery/tapahtumakuvaus/tapa",
-    count: 3,
+    count: 15,
     ext: "jpg",
   },
   katukuvaus: {
