@@ -7,7 +7,7 @@ function About() {
       <div className="w-full md:w-1/2">
         <img
           src={aboutImg}
-          alt="Jani kuva"
+          alt="Janin kuva"
           className="w-full h-[40vh] md:h-[100vh] object-cover scale-105 opacity-0 animate-[fadeSlideLeft_1s_ease-out_forwards]"
         />
       </div>
