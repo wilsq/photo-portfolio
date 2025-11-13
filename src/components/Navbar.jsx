@@ -23,6 +23,9 @@ function Navbar() {
           <Link to="/about" className="hover:text-gray-500 cursor-pointer">
             About
           </Link>
+          <Link to="/contact" className="hover:text-gray-500 cursor-pointer">
+            Contact
+          </Link>
         </ul>
 
         {/* Mobiili Menu */}
@@ -58,6 +61,13 @@ function Navbar() {
               className="hover:text-gray-500 transition"
             >
               About
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-gray-500 transition"
+            >
+              Contact
             </Link>
           </ul>
         </div>
