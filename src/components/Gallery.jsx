@@ -16,7 +16,7 @@ const CATEGORIES = {
   },
   katukuvaus: {
     prefix: "/gallery/katukuvaus/katu",
-    count: 13,
+    count: 17,
     ext: "jpg",
   },
 };
