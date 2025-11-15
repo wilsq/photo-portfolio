@@ -11,6 +11,8 @@ function Contact() {
 
   const [showPopup, setShowPopup] = useState(false);
 
+  const [errors, serErrors] = useState({});
+
   // Inputtien muutoskäsittelijä
   const handleChange = (e) => {
     setFormData({
@@ -19,8 +21,40 @@ function Contact() {
     });
   };
 
+  // Frontendin validiointi funktio
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Nimi on pakollinen";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Sähköposti on pakollinen";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (formData.email && !emailRegex.test(formData.email)) {
+      newErrors.email = "Sähköposti ei ole kelvollinen";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "Viesti ei voi olla tyhjä";
+    }
+
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      serErrors(formErrors);
+      return;
+    }
+
+    // Jos ei virheitä, nollataan errorit
+    setErrors({});
+
     console.log("Lähetettävä data:", formData);
 
     try {
@@ -62,6 +96,7 @@ function Contact() {
             onChange={handleChange}
             className="p-3 rounded-1g bg-black/30 border border-white/20"
           />
+          {errors.name && <p className="text-red-400 text-sm">{errors.name}</p>}
 
           <input
             type="email"
@@ -71,6 +106,9 @@ function Contact() {
             onChange={handleChange}
             className="p-3 rounded-1g bg-black/30 border border-white/20"
           />
+          {errors.email && (
+            <p className="text-red-400 text-sm">{errors.email}</p>
+          )}
 
           <textarea
             name="message"
@@ -79,6 +117,9 @@ function Contact() {
             onChange={handleChange}
             className="p-3 rounded-1g bg-black/30 border border-white/20 h-32"
           />
+          {errors.message && (
+            <p className="text-red-400 text-sm">{errors.message}</p>
+          )}
 
           <button
             type="submit"
