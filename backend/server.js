@@ -5,19 +5,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Testi Route
-app.get("/", (req, res) => {
-  res.send("Backend Toimii !");
-});
-
-app.post("/contact", (req, res) => {
+app.post("/api/contact", (req, res) => {
   const { name, email, message } = req.body;
 
+  // Basic Validation
   if (!name || !email || !message) {
-    return res.status(400).json({ error: "Kaikki kentät vaaditaan." });
+    return res.status(400).json({ error: "Kaikki kentät ovat pakollisia." });
   }
 
-  console.log("uusi yhteydenotto: ", req.body);
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: "Sähköpostiosoite ei ole validi." });
+  }
 
   return res.json({ success: "true", message: "Viesti vastaanotettu!" });
 });

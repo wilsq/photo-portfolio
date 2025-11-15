@@ -1,28 +1,86 @@
+import { useState } from "react";
+
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState(null);
+
+  // Inputtien muutoskäsittelijä
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Lähetettävä data:", formData);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Virhe lähetyksessä");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" }); // Resetoidaan lomake
+    } catch (error) {
+      console.error("Virhe lomakkeen lähetyksessä", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <section className="min-h-screen bg-black text-white px-6 py-16">
       <div className="max-w-2x1 mx-auto">
         <h1 className="text-4x1 font-bold mb-8">Ota Yhteyttä</h1>
 
-        <form className="flex flex-col gap-6 bg-white/5 p-6 rounded-x1 border border-white/10">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-6 bg-white/5 p-6 rounded-x1 border border-white/10"
+        >
           <input
             type="text"
+            name="name"
             placeholder="Nimi"
+            value={formData.name}
+            onChange={handleChange}
             className="p-3 rounded-1g bg-black/30 border border-white/20"
           />
 
           <input
             type="email"
+            name="email"
             placeholder="Sähköposti"
+            value={formData.email}
+            onChange={handleChange}
             className="p-3 rounded-1g bg-black/30 border border-white/20"
           />
 
           <textarea
+            name="message"
             placeholder="Viesti"
+            value={formData.message}
+            onChange={handleChange}
             className="p-3 rounded-1g bg-black/30 border border-white/20 h-32"
           />
 
-          <button className="bg-white/10 hover:bg-white/20 border border-white/20 p-3 rounded-1g">
+          <button
+            type="submit"
+            className="bg-white/10 hover:bg-white/20 border border-white/20 p-3 rounded-1g"
+          >
             Lähetä viesti
           </button>
         </form>
