@@ -9,6 +9,8 @@ function Contact() {
 
   const [status, setStatus] = useState(null);
 
+  const [showPopup, setShowPopup] = useState(false);
+
   // Inputtien muutoskäsittelijä
   const handleChange = (e) => {
     setFormData({
@@ -36,6 +38,7 @@ function Contact() {
 
       setStatus("success");
       setFormData({ name: "", email: "", message: "" }); // Resetoidaan lomake
+      setShowPopup(true); // avaa pop-up
     } catch (error) {
       console.error("Virhe lomakkeen lähetyksessä", error);
       setStatus("error");
@@ -85,6 +88,21 @@ function Contact() {
           </button>
         </form>
       </div>
+
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+          <div className="bg-white text-black rounded-xl p-6 w-80 text-center animate-[fadeIn_0.3s_ease-out]">
+            <h3 className="text-x1 font-bold mb-3">Kiitos viestistä!</h3>
+            <p>Vastaamme mahdollisimman pian.</p>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="mt-5 px-4 bg-black text-white rounded-lg hover:bg-gray-800 transition"
+            >
+              Sulje
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
