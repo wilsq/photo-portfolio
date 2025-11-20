@@ -1,12 +1,24 @@
-import express from "express";
+import express, { text } from "express";
 import cors from "cors";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post("/api/contact", (req, res) => {
+app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
 
   // Basic Validation
   if (!name || !email || !message) {
@@ -19,7 +31,20 @@ app.post("/api/contact", (req, res) => {
     return res.status(400).json({ error: "Sähköpostiosoite ei ole validi." });
   }
 
-  return res.json({ success: "true", message: "Viesti vastaanotettu!" });
+  const mailOptions = {
+    from: email,
+    to: process.env.EMAIL_USER,
+    subject: `Uusi yhteydenotto: ${name}`,
+    text: `Nimi: ${name} Sähköposti: ${email} Viesti: ${message}`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    return res.json({ success: "true", message: "Viesti vastaanotettu!" });
+  } catch (error) {
+    console.error("SMTP virhe: ", error);
+    return res.status(500).json({ error: "Viestin lähetys epäonnistui." });
+  }
 });
 
 app.listen(5000, () => console.log("Backend käynnissä portissa 5000"));
