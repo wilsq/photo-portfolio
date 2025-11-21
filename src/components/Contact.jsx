@@ -11,7 +11,7 @@ function Contact() {
 
   const [showPopup, setShowPopup] = useState(false);
 
-  const [errors, serErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   // Inputtien muutoskäsittelijä
   const handleChange = (e) => {
@@ -58,7 +58,7 @@ function Contact() {
     console.log("Lähetettävä data:", formData);
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch("http://localhost:5050/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

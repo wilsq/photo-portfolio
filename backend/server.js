@@ -5,11 +5,15 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+console.log("EMAIL_USER:", process.env.EMAIL_USER);
+console.log("EMAIL_PASS length:", process.env.EMAIL_PASS?.length);
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.post("/api/contact", async (req, res) => {
+  console.log("POST /api/contact body:", req.body);
   const { name, email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
@@ -47,4 +51,4 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log("Backend käynnissä portissa 5000"));
+app.listen(5050, () => console.log("Backend käynnissä portissa 5050"));
