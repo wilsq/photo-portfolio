@@ -58,13 +58,16 @@ function Contact() {
     console.log("Lähetettävä data:", formData);
 
     try {
-      const response = await fetch("http://localhost:5050/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://x57uj7d263.execute-api.eu-north-1.amazonaws.com/prod/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Virhe lähetyksessä");
