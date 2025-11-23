@@ -13,6 +13,8 @@ function Contact() {
 
   const [errors, setErrors] = useState({});
 
+  console.log("VITE API:", import.meta.env.VITE_API_URL);
+
   // Inputtien muutoskäsittelijä
   const handleChange = (e) => {
     setFormData({
@@ -57,17 +59,16 @@ function Contact() {
 
     console.log("Lähetettävä data:", formData);
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     try {
-      const response = await fetch(
-        "https://x57uj7d263.execute-api.eu-north-1.amazonaws.com/prod/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${API_URL}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (!response.ok) {
         throw new Error("Virhe lähetyksessä");

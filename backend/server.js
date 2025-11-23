@@ -9,10 +9,16 @@ console.log("EMAIL_USER:", process.env.EMAIL_USER);
 console.log("EMAIL_PASS length:", process.env.EMAIL_PASS?.length);
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL, // Amplify URL
+    methods: ["GET", "POST"],
+  })
+);
+
 app.use(express.json());
 
-app.post("/api/contact", async (req, res) => {
+app.post("/contact", async (req, res) => {
   console.log("POST /api/contact body:", req.body);
   const { name, email, message } = req.body;
 
@@ -51,4 +57,5 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-app.listen(5050, () => console.log("Backend käynnissä portissa 5050"));
+const PORT = process.env.PORT || 5050;
+app.listen(PORT, () => console.log("Server running on port", PORT));
