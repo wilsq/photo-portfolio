@@ -50,7 +50,7 @@ function Contact() {
 
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
-      serErrors(formErrors);
+      setErrors(formErrors);
       return;
     }
 
