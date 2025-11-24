@@ -1,26 +1,33 @@
-import express, { text } from "express";
+import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-console.log("EMAIL_USER:", process.env.EMAIL_USER);
-console.log("EMAIL_PASS length:", process.env.EMAIL_PASS?.length);
-
 const app = express();
+
+// CORS paikallista frontendia varten
 app.use(
   cors({
-    origin: process.env.CLIENT_URL, // Amplify URL
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST"],
   })
 );
 
+// BODY parser
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Backend running");
+});
+
 app.post("/contact", async (req, res) => {
-  console.log("POST /api/contact body:", req.body);
   const { name, email, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: "All fields required" });
+  }
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -30,30 +37,18 @@ app.post("/contact", async (req, res) => {
     },
   });
 
-  // Basic Validation
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: "Kaikki kentät ovat pakollisia." });
-  }
-
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    return res.status(400).json({ error: "Sähköpostiosoite ei ole validi." });
-  }
-
-  const mailOptions = {
-    from: email,
-    to: process.env.EMAIL_USER,
-    subject: `Uusi yhteydenotto: ${name}`,
-    text: `Nimi: ${name} Sähköposti: ${email} Viesti: ${message}`,
-  };
-
   try {
-    await transporter.sendMail(mailOptions);
-    return res.json({ success: "true", message: "Viesti vastaanotettu!" });
+    await transporter.sendMail({
+      from: email,
+      to: process.env.EMAIL_USER,
+      subject: `Yhteydenotto: ${name}`,
+      text: message,
+    });
+
+    return res.json({ success: true });
   } catch (error) {
-    console.error("SMTP virhe: ", error);
-    return res.status(500).json({ error: "Viestin lähetys epäonnistui." });
+    console.error("SMTP ERROR:", error);
+    return res.status(500).json({ error: "Email failed" });
   }
 });
 
