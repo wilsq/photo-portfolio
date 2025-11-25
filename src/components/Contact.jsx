@@ -13,8 +13,6 @@ function Contact() {
 
   const [errors, setErrors] = useState({});
 
-  console.log("VITE API:", import.meta.env.VITE_API_URL);
-
   // Inputtien muutoskäsittelijä
   const handleChange = (e) => {
     setFormData({
