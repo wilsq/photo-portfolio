@@ -10,8 +10,7 @@ const app = express();
 // CORS paikallista frontendia varten
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    methods: ["GET", "POST"],
+    origin: "*",
   })
 );
 
