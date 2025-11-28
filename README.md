@@ -10,16 +10,16 @@ Tämä projekti yhdistää modernin valokuva-/projektigallerian tehokkaaseen ja 
 
 ### Frontend-ominaisuudet (Photo Portfolio)
 
-🔹 **Responsiivinen rakenne:** (toimii hyvin eri kokoisilla näytöillä)
-🔹 **Lightbox-ominaisuus:** kuvien suurentamiseen
-🔹 **Tumma ja tyylikäs ulkoasu**
-🔹 **Selkeä rakenne:** Navbar, Hero, Gallery, Footer
+🔹 **Responsiivinen rakenne:** (toimii hyvin eri kokoisilla näytöillä)  
+🔹 **Lightbox-ominaisuus:** kuvien suurentamiseen  
+🔹 **Tumma ja tyylikäs ulkoasu**  
+🔹 **Selkeä rakenne:** Navbar, Hero, Gallery, Footer  
 🔹 **Käyttövalmis yhteydenottolomake:** Saumaton integraatio serverittömään backendiin.
 
 ### Backend-ominaisuudet (Yhteydenottolomake)
 
-🔹 **Sähköpostin toimitus:** Vahvistettu toimivaksi AWS-ympäristöstä Gmailin SMTP:n kautta.
-🔹 **Frontend-validointi:** Nopea käyttäjäpalaute lomakkeen syötteestä.
+🔹 **Sähköpostin toimitus:** Vahvistettu toimivaksi AWS-ympäristöstä Gmailin SMTP:n kautta.  
+🔹 **Frontend-validointi:** Nopea käyttäjäpalaute lomakkeen syötteestä.  
 🔹 **Välitön Vaste:** HTTP-pyyntö vastaa nopeasti käyttäjälle (**200 OK**) sähköpostin lähetyksen jälkeen, mikä parantaa käyttäjäkokemusta.
 
 ---
@@ -58,7 +58,7 @@ Reititys & Turvallisuus: **AWS API Gateway** toimii julkisena HTTP-rajapintana, 
 
 🧠 5. Keskeinen Tekninen Haaste: Luotettava Sähköpostin Toimitus AWS:ssä.
 
-Ongelma: SMTP-yhteyden epäluotettavuus Elastic Beanstalkissa
+Ongelma: SMTP-yhteyden epäluotettavuus Elastic Beanstalkissa  
 Alun perin backend deployattiin AWS Elastic Beanstalkiin (EB). Tässä ympäristössä Gmailin SMTP-yhteys (portti 465) epäonnistui toistuvasti aikakatkaisuihin (ETIMEDOUT), vaikka Security Group -säännöt olivat auki. Tämä osoitti, että EB-verkon ja ulkoisten SMTP-palvelimien välillä oli syvempiä estorajoituksia.
 
 Ratkaisu: Siirtyminen Serverittömään Arkkitehtuuriin
