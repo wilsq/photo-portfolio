@@ -8,23 +8,25 @@ Tämä projekti yhdistää modernin valokuva-/projektigallerian tehokkaaseen ja 
 
 ## 🚀 Ominaisuudet
 
-Frontend-ominaisuudet (Photo Portfolio)
-🔹 Responsiivinen rakenne: (toimii hyvin eri kokoisilla näytöillä)
-🔹 Lightbox-ominaisuus: kuvien suurentamiseen
-🔹 Tumma ja tyylikäs ulkoasu
-🔹 Selkeä rakenne: Navbar, Hero, Gallery, Footer
-🔹 Käyttövalmis yhteydenottolomake: Saumaton integraatio serverittömään backendiin.
+### Frontend-ominaisuudet (Photo Portfolio)
 
-Backend-ominaisuudet (Yhteydenottolomake)
-🔹 Sähköpostin toimitus: Vahvistettu toimivaksi AWS-ympäristöstä Gmailin SMTP:n kautta.
-🔹 Frontend-validointi: Nopea käyttäjäpalaute lomakkeen syötteestä.
-🔹 Välitön Vaste: HTTP-pyyntö vastaa nopeasti käyttäjälle ($200$ OK) sähköpostin lähetyksen jälkeen, mikä parantaa käyttäjäkokemusta.
+🔹 **Responsiivinen rakenne:** (toimii hyvin eri kokoisilla näytöillä)
+🔹 **Lightbox-ominaisuus:** kuvien suurentamiseen
+🔹 **Tumma ja tyylikäs ulkoasu**
+🔹 **Selkeä rakenne:** Navbar, Hero, Gallery, Footer
+🔹 **Käyttövalmis yhteydenottolomake:** Saumaton integraatio serverittömään backendiin.
+
+### Backend-ominaisuudet (Yhteydenottolomake)
+
+🔹 **Sähköpostin toimitus:** Vahvistettu toimivaksi AWS-ympäristöstä Gmailin SMTP:n kautta.
+🔹 **Frontend-validointi:** Nopea käyttäjäpalaute lomakkeen syötteestä.
+🔹 **Välitön Vaste:** HTTP-pyyntö vastaa nopeasti käyttäjälle (**200 OK**) sähköpostin lähetyksen jälkeen, mikä parantaa käyttäjäkokemusta.
 
 ---
 
 ## 💡 Arkkitehtuuri
 
-Projekti käyttää **Serverless-mallia** (FaaS) kriittiselle yhteystietojen backendille.
+Projekti käyttää **Serverless-mallia** (FaaS) yhteydenottolomake backendille.
 
 **Frontend: React**-sovellus (Photo Portfolio), joka on isännöity **AWS Amplify Hostingissa**.
 
