@@ -55,8 +55,6 @@ function Contact() {
     // Jos ei virheitä, nollataan errorit
     setErrors({});
 
-    console.log("Lähetettävä data:", formData);
-
     const API_URL = import.meta.env.VITE_API_URL;
 
     try {

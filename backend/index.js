@@ -1,25 +1,16 @@
 import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
-dotenv.config();
+import serverless from "serverless-http";
 
 const app = express();
-
-// CORS paikallista frontendia varten
-app.use(
-  cors({
-    origin: "*",
-  })
-);
-
-// BODY parser
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Backend running");
-});
+// vanha /
+// app.get("/", (req, res) => {
+//   res.send("Backend running");
+// });
 
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
@@ -29,27 +20,35 @@ app.post("/contact", async (req, res) => {
   }
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
+    // Lyhennetään aikakatkaisu 15 sekuntiin, jotta saadaan virhe nopeasti
+    connectionTimeout: 15000,
+    socketTimeout: 15000,
   });
 
   try {
     await transporter.sendMail({
-      from: email,
+      from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
+      replyTo: email,
       subject: `Yhteydenotto: ${name}`,
       text: message,
     });
 
     return res.json({ success: true });
   } catch (error) {
-    console.error("SMTP ERROR:", error);
-    return res.status(500).json({ error: "Email failed" });
+    console.error("GMAIL SMTP ERROR (Lambda):", error);
+    return res
+      .status(500)
+      .json({ error: "Sähköpostin lähetys epäonnistui Lambdassa." });
   }
 });
 
-const PORT = process.env.PORT || 5050;
-app.listen(PORT, () => console.log("Server running on port", PORT));
+// serverless handler-funktio, jota Lambda kutsuu
+export const handler = serverless(app);
