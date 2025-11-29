@@ -1,68 +1,100 @@
-# 🖼️ Photo Portfolio
+# 🖼️ Photo Portfolio (AWS Amplify + Serverless Backend)
 
-Linkki Live-sivulle: https://aws-deploy.d1kxm3pt2eu4tt.amplifyapp.com/
+Live Demo:
+https://aws-deploy.d1kxm3pt2eu4tt.amplifyapp.com/
 
-Tämä projekti yhdistää modernin valokuva-/projektigallerian tehokkaaseen ja skaalautuvaan yhteydenottolomakebackendiin. Se esittelee puhtaat ja tyylikkäät käyttöliittymät samalla kun se varmistaa luotettavan yhteydenottotoiminnallisuuden.
+Tämä projekti yhdistää modernin valokuva-/projektigallerian ja skaalautuvan serverless-backendin yhteydenottolomakkeen käsittelyyn. Frontend tarjoaa tyylikkään käyttöliittymän, ja backend varmistaa luotettavan sähköpostitoiminnallisuuden AWS-ympäristössä.
+
+# 🚀 Ominaisuudet
+
+## Frontend (Photo Portfolio)
+
+🔹 Responsiivinen rakenne – toimii mobiilissa ja desktopissa
+
+🔹 Lightbox-toiminnallisuus – kuvien suurennus
+
+🔹 Tumma ja elegantti UI
+
+🔹 Rakenne: Navbar, Hero, Gallery, Footer
+
+🔹 Yhteydenottolomake integroitu serverless-backendiin
+
+## Backend (Contact Form)
+
+🔹 Sähköpostin lähetys Gmail SMTP:n kautta
+
+🔹 Frontend-validointi ennen backend-kutsua
+
+🔹 Nopea vaste – Lambda palauttaa 200 OK heti, mikä parantaa UX:ää
+
+# 💡 Arkkitehtuuri
+
+Projektin backend hyödyntää **serverless-arkkitehtuuria (FaaS)**:
+
+**Frontend**: React-sovellus hostattuna **AWS Amplify Hostingissa**
+
+**API-reititys: AWS API Gateway**, käyttäen **Lambda Proxy Integration** -mallia
+
+**Backend: AWS Lambda** (Node.js) suorittaa lomakelähetyksen logiikan
+
+**Sähköpostin lähetys**: tehty SMTP:llä (Nodemailer)
+
+## Arkkitehtuurikaavio
+
+# 🛠️ Teknologiat
+
+| Teknologia                    | Käyttötarkoitus                         |
+| ----------------------------- | --------------------------------------- |
+| **React**                     | Frontend-rakenne                        |
+| **Vite**                      | Kehitysympäristö                        |
+| **Tailwind CSS**              | Tyylit ja responsiivisuus               |
+| **Lucide-react**              | Kuvakkeet                               |
+| **Node.js**                   | Backend-koodi Lambdassa                 |
+| **Express + serverless-http** | REST API Express-syntaksilla Lambdassa  |
+| **Nodemailer**                | Sähköpostien lähetys Gmail SMTP:llä     |
+| **AWS Lambda**                | Serverless-backend                      |
+| **AWS API Gateway**           | HTTP-rajapinta                          |
+| **AWS Amplify Hosting**       | Frontend hosting ja CI/CD               |
+| **AWS IAM**                   | Oikeuksien hallinta                     |
+| **CORS**                      | Selaimen ja API:n välinen kommunikointi |
 
 ---
 
-## 🚀 Ominaisuudet
+## 🧠 Keskeinen Tekninen Haaste: Luotettava Sähköpostin Toimitus AWS:ssä
 
-### Frontend-ominaisuudet (Photo Portfolio)
+Ongelma — SMTP-yhteys epäluotettava Elastic Beanstalkissa
 
-🔹 **Responsiivinen rakenne:** (toimii hyvin eri kokoisilla näytöillä)  
-🔹 **Lightbox-ominaisuus:** kuvien suurentamiseen  
-🔹 **Tumma ja tyylikäs ulkoasu**  
-🔹 **Selkeä rakenne:** Navbar, Hero, Gallery, Footer  
-🔹 **Käyttövalmis yhteydenottolomake:** Saumaton integraatio serverittömään backendiin.
+Alkuperäinen backend oli deployattu AWS Elastic Beanstalkiin.
+Gmailin SMTP-yhteys (portti 465) epäonnistui jatkuvasti (ETIMEDOUT), vaikka Security Group -säännöt olivat oikein.
+Tämä viittasi EB:n sisäisiin verkkorajoituksiin ulkoisiin SMTP-palvelimiin.
 
-### Backend-ominaisuudet (Yhteydenottolomake)
+Ratkaisu — siirtyminen serverless-arkkitehtuuriin
 
-🔹 **Sähköpostin toimitus:** Vahvistettu toimivaksi AWS-ympäristöstä Gmailin SMTP:n kautta.  
-🔹 **Frontend-validointi:** Nopea käyttäjäpalaute lomakkeen syötteestä.  
-🔹 **Välitön Vaste:** HTTP-pyyntö vastaa nopeasti käyttäjälle (**200 OK**) sähköpostin lähetyksen jälkeen, mikä parantaa käyttäjäkokemusta.
+Backend siirrettiin AWS Lambda -ympäristöön.
+Lambda tarjosi eri verkkopolun, joka mahdollisti Nodemailerin onnistuneen yhteyden Gmail SMTP:hen.
+Samalla kokonaisuus muuttui skaalautuvaksi ja kustannustehokkaaksi.
 
 ---
 
-## 💡 Arkkitehtuuri
+# 🎯 Mitä opin tästä projektista
 
-Projekti käyttää **Serverless-mallia** (FaaS) yhteydenottolomake backendille.
+Opin suunnittelemaan ja toteuttamaan täyden serverless-arkkitehtuurin AWS:n palveluilla (Amplify → API Gateway → Lambda)
 
-**Frontend: React**-sovellus (Photo Portfolio), joka on isännöity **AWS Amplify Hostingissa**.
+Ymmärsin SMTP-, Lambda-, API Gateway- ja Amplify -kokonaisuuden käytännössä
 
-Reititys & Turvallisuus: **AWS API Gateway** toimii julkisena HTTP-rajapintana, käyttäen **Lambda Proxy Integration** -integraatiota.
+Syvensin osaamistani API-suunnittelussa, HTTP-metodeissa ja Lambda Proxy Integration -mallissa
 
-**Backend Logic (Funktio): AWS Lambda** (Node.js) suorittaa yhteydenottolomakkeen logiikan.
+Ymmärsin, miten SMTP toimii pilviympäristöissä ja mitä rajoitteita eri AWS-palvelut asettavat ulkoisiin yhteyksiin (kuten Gmail SMTP)
 
----
+Opin debuggaamaan AWS:n palveluita hyödyntämällä CloudWatch-logeja ja API Gatewayn testityökaluja.
 
-## 🛠️ Teknologiat
+Harjoittelin CORS-konfiguraatiota, joka on kriittinen frontendin ja backentin kommunikoinnissa.
 
-| Teknologia              | Käyttötarkoitus                                       |
-| ----------------------- | ----------------------------------------------------- |
-| **React**               | Sovelluksen rakenne ja komponentit                    |
-| **Vite**                | Nopea kehitysympäristö                                |
-| **Tailwind CSS**        | Tyylit ja responsiivisuus                             |
-| **Lucide-react**        | Kuvakkeet (nuolet, sulkuikoni)                        |
-| **Node.js**             | Backend-logiikka (Lambda)                             |
-| **Express**             | REST API:n luonti ja reititys (Lambda)                |
-| **Serverless-http**     | Express-sovelluksen kääriminen Lambda-yhteensopivaksi |
-| **Nodemailer**          | Sähköpostien lähettäminen (Gmail SMTP) (Lambda)       |
-| **AWS Lambda**          | Serveritön laskentapalvelu (Backend)                  |
-| **AWS API Gateway**     | API-rajapinta ja reititys Lambdaan                    |
-| **AWS Amplify Hosting** | Frontend-sovelluksen isännöinti ja CI/CD              |
-| **AWS IAM**             | Käyttöoikeuksien hallinta AWS-palveluille             |
-| **CORS**                | Rajoitusten poisto selaimen ja API:n välillä          |
+Rakensin toimivan front-to-back -arkkitehtuurin
 
----
+Ratkaisin todellisen verkko-/infraongelman
 
-🧠 5. Keskeinen Tekninen Haaste: Luotettava Sähköpostin Toimitus AWS:ssä.
-
-Ongelma: SMTP-yhteyden epäluotettavuus Elastic Beanstalkissa  
-Alun perin backend deployattiin AWS Elastic Beanstalkiin (EB). Tässä ympäristössä Gmailin SMTP-yhteys (portti 465) epäonnistui toistuvasti aikakatkaisuihin (ETIMEDOUT), vaikka Security Group -säännöt olivat auki. Tämä osoitti, että EB-verkon ja ulkoisten SMTP-palvelimien välillä oli syvempiä estorajoituksia.
-
-Ratkaisu: Siirtyminen Serverittömään Arkkitehtuuriin
-Ongelma ratkaistiin siirtämällä Express-backend serverittömään AWS Lambda -arkkitehtuuriin. Tämä lähestymistapa tarjosi uuden verkkopolun, joka mahdollisti Nodemailerin ja Gmailin välisen SMTP-yhteyden onnistumisen.
+Kehitin taitoa dokumentoida arkkitehtuuria ja perustella teknisiä valintoja
 
 ---
 
