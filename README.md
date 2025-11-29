@@ -41,6 +41,8 @@ Projektin backend hyödyntää **serverless-arkkitehtuuria (FaaS)**:
 
 ## Arkkitehtuurikaavio
 
+![Architecture Diagram](./aws_arkkitehtuurikaavio.png)
+
 # 🛠️ Teknologiat
 
 | Teknologia                    | Käyttötarkoitus                         |
