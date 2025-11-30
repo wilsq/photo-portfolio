@@ -81,8 +81,8 @@ function Contact() {
 
   return (
     <section className="min-h-screen bg-black text-white px-6 py-16">
-      <div className="max-w-2x1 mx-auto">
-        <h1 className="text-4x1 font-bold mb-8">Ota Yhteyttä</h1>
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold mb-8">Ota Yhteyttä</h1>
 
         <form
           onSubmit={handleSubmit}
