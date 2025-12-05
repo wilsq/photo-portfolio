@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 const CATEGORIES = {
   tuotekuvaus: {
     prefix: "/gallery/tuotekuvaus/tuote",
-    count: 14,
+    count: 15,
     ext: "jpg",
   },
   tapahtumakuvaus: {
